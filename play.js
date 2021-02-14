@@ -10,7 +10,7 @@ async function playMusic(msg, content) {
   try {
     if (msg.member.roles.cache.find((r) => r.name == DJ)) {
       if (msg.member.voice.channel == null) {
-        msg.reply("**Please join a  voice channel first!**");
+        msg.reply("**Please join a voice channel first!**");
         return;
       }
       if (msg.guild.voice != undefined) {
@@ -41,7 +41,6 @@ async function playMusic(msg, content) {
       dispatcher = connection.play(
         ytdl(url, {
           filter: "audioonly",
-          dlChunkSize: 0,
         })
       );
       playing = true;

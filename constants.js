@@ -4,6 +4,12 @@ const HELP = "help";
 const MEME = "meme";
 const WRONG_COMMAND = "Wrong Command!";
 const GIF = "gif";
+const PLAY = "play";
+const PAUSE = "pause";
+const LEAVE = "leave";
+const RESUME = "resume";
+const DJ = "DJ";
+const NOT_DJ_REPLY = "**You need 'DJ' Role to use that command!**";
 const HELP_REPLY =
   "**Commands** ==> ***Operation***\n" +
   "**`!meme` ==> *To get a meme***\n" +
@@ -18,4 +24,10 @@ module.exports = {
   GIF,
   HELP,
   HELP_REPLY,
+  PLAY,
+  PAUSE,
+  LEAVE,
+  RESUME,
+  DJ,
+  NOT_DJ_REPLY,
 };

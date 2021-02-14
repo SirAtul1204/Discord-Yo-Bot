@@ -2,6 +2,12 @@ const Discord = require("discord.js");
 const { getMeme } = require("./meme");
 const { getGif } = require("./gif");
 const {
+  playMusic,
+  pauseMusic,
+  leaveVoiceChannel,
+  resumeMusic,
+} = require("./play");
+const {
   YO,
   YO_REPLY,
   MEME,
@@ -9,6 +15,10 @@ const {
   GIF,
   HELP,
   HELP_REPLY,
+  PLAY,
+  PAUSE,
+  LEAVE,
+  RESUME,
 } = require("./constants");
 
 const client = new Discord.Client();
@@ -27,6 +37,7 @@ client.on("message", (msg) => {
     switch (content[0]) {
       case YO:
         msg.reply(YO_REPLY);
+        console.log(msg);
         break;
       case MEME:
         getMeme(msg);
@@ -37,6 +48,19 @@ client.on("message", (msg) => {
         break;
       case HELP:
         msg.channel.send(HELP_REPLY);
+        break;
+      case PLAY:
+        content.shift();
+        playMusic(msg, content);
+        break;
+      case PAUSE:
+        pauseMusic(msg);
+        break;
+      case LEAVE:
+        leaveVoiceChannel(msg);
+        break;
+      case RESUME:
+        resumeMusic(msg);
         break;
       default:
         msg.reply(WRONG_COMMAND);
